@@ -26,7 +26,7 @@ describe CXML::Document do
   end
 
   describe '#render' do
-    it 'returns and xml result' do
+    it 'returns an xml result' do
       doc = CXML::Document.new(parser.parse(fixture('envelope3.xml')))
       expect { doc.render }.not_to raise_error
     end
