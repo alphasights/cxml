@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'byebug'
 
 describe CXML::Document do
   let(:parser) { CXML::Parser.new }
@@ -26,8 +27,9 @@ describe CXML::Document do
   end
 
   describe '#render' do
-    it 'returns and xml result' do
+    it 'returns an xml result' do
       doc = CXML::Document.new(parser.parse(fixture('envelope3.xml')))
+      byebug
       expect { doc.render }.not_to raise_error
     end
   end
