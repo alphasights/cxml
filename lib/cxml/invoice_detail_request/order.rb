@@ -14,7 +14,7 @@ module CXML
         node.InvoiceDetailOrder do |o|
           o.InvoiceDetailOrderInfo do |oi|
             oi.MasterAgreementReference do |mar|
-              mar.DocumentReference('payload_id' => payload_id)
+              mar.DocumentReference('payloadID' => payload_id)
             end
           end
 
@@ -22,6 +22,7 @@ module CXML
             item.render(o)
           end
         end
+        node
       end
 
       private

@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'pry'
 
 module CXML
   module InvoiceDetailRequest
@@ -17,11 +16,12 @@ module CXML
 
         order = described_class.new(payload_id: 'test', items: [item_1, item_2])
 
-        expect(order.render(builder).to_xml).to eq(<<-EOF.strip_heredoc
+        expect(order.render(builder).to_xml).to eq(<<~EOF
+          <?xml version="1.0" encoding="UTF-8"?>
           <InvoiceDetailOrder>
             <InvoiceDetailOrderInfo>
               <MasterAgreementReference>
-                <DocumentReference payloadID="test" />
+                <DocumentReference payloadID="test"/>
               </MasterAgreementReference>
             </InvoiceDetailOrderInfo>
             <InvoiceDetailServiceItem invoiceLineNumber="1" referenceDate="2016-10-19T15:00:00-00:00">
@@ -32,7 +32,7 @@ module CXML
                 <Money currency="GBP">400</Money>
               </SubtotalAmount>
             </InvoiceDetailServiceItem>
-             <InvoiceDetailServiceItem invoiceLineNumber="2" referenceDate="2016-09-19T15:00:00-00:00">
+            <InvoiceDetailServiceItem invoiceLineNumber="2" referenceDate="2016-10-19T15:00:00-00:00">
               <InvoiceDetailServiceItemReference>
                 <Description xml:lang="en">this is a description</Description>
               </InvoiceDetailServiceItemReference>
