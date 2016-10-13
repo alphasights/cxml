@@ -51,7 +51,7 @@ module CXML
 
     def render
       node = CXML.builder
-      node.cXML('version' => version, 'payloadID' => payload_id, 'timestamp' => timestamp.iso8601) do |doc|
+      node.cXML('payloadID' => payload_id, 'timestamp' => timestamp.iso8601) do |doc|
         doc.Header { |n| @header.render(n) } if @header
         @request.render(node) if @request
         @response.render(node) if @response
