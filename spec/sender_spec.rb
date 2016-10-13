@@ -13,17 +13,18 @@ describe CXML::Sender do
       sender.user_agent = 'Alphasights LTD'
       sender.credential = sender_credential
 
-      expect(sender.render(builder).to_xml).to eq(
-'<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE cXML SYSTEM "http://xml.cXML.org/schemas/cXML/1.2.020/InvoiceDetail.dtd">
-<Sender>
-  <Credential domain="sender_domain">
-    <Identity>sender_id</Identity>
-    <SharedSecret>123456</SharedSecret>
-  </Credential>
-  <UserAgent>Alphasights LTD</UserAgent>
-</Sender>
-')
+      expect(sender.render(builder).to_xml).to eq(<<~EOF
+        <?xml version="1.0" encoding="UTF-8"?>
+        <!DOCTYPE cXML SYSTEM "http://xml.cXML.org/schemas/cXML/1.2.020/InvoiceDetail.dtd">
+        <Sender>
+          <Credential domain="sender_domain">
+            <Identity>sender_id</Identity>
+            <SharedSecret>123456</SharedSecret>
+          </Credential>
+          <UserAgent>Alphasights LTD</UserAgent>
+        </Sender>
+        EOF
+      )
       
     end
   end
