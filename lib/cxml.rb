@@ -20,6 +20,8 @@ module CXML
   end
 
   def self.builder
-    Nokogiri::XML::Builder.new(:encoding => "UTF-8")
+    Nokogiri::XML::Builder.new(:encoding => "UTF-8") do |xml|
+      xml.doc.create_internal_subset('cXML', nil, "http://xml.cXML.org/schemas/cXML/1.2.020/InvoiceDetail.dtd")
+    end
   end
 end
