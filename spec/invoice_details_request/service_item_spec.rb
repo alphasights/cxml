@@ -17,6 +17,7 @@ module CXML
 
         expect(service_item.render(builder).to_xml).to eq(<<~EOF
           <?xml version="1.0" encoding="UTF-8"?>
+          <!DOCTYPE cXML SYSTEM "http://xml.cXML.org/schemas/cXML/1.2.020/InvoiceDetail.dtd">
           <InvoiceDetailServiceItem invoiceLineNumber="1" referenceDate="2016-10-19T15:00:00-00:00">
             <InvoiceDetailServiceItemReference>
               <Description xml:lang="en">this is a description</Description>
