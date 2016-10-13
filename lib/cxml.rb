@@ -15,6 +15,9 @@ module CXML
   autoload :Response,      'cxml/response'
   autoload :Parser,        'cxml/parser'
 
+  require 'cxml/invoice_detail_request/order'
+  require 'cxml/invoice_detail_request/service_item'
+
   def self.parse(str)
     CXML::Parser.new.parse(str)
   end
