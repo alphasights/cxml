@@ -18,6 +18,7 @@ module CXML
 
         expect(order.render(builder).to_xml).to eq(<<~EOF
           <?xml version="1.0" encoding="UTF-8"?>
+          <!DOCTYPE cXML SYSTEM "http://xml.cXML.org/schemas/cXML/1.2.020/InvoiceDetail.dtd">
           <InvoiceDetailOrder>
             <InvoiceDetailOrderInfo>
               <MasterAgreementReference>
