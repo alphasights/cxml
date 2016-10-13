@@ -1,5 +1,5 @@
 require 'nokogiri'
-require 'pry'
+
 module CXML
   module InvoiceDetailRequest
     class PostalAddress
