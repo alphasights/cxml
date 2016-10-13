@@ -1,16 +1,17 @@
 require 'nokogiri'
+require 'pry'
 module CXML
   module InvoiceDetailRequest
-    class PostalAdress
+    class PostalAddress
       attr_accessor :streets, :city, :postal_code, :country, :country_code
 
       def initialize(data={})
         if data.kind_of?(Hash) && !data.empty?
-          @streets = data['streets']
-          @city = data['City']
-          @postal_code = data['PostalCode']
-          @country = data['Country']
-          @country_code = data['isoCountryCode']
+          @streets = data[:streets]
+          @city = data[:city]
+          @postal_code = data[:postal_code]
+          @country = data[:country]
+          @country_code = data[:country_code]
         end
       end
 
