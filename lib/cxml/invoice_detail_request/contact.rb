@@ -5,19 +5,19 @@ module CXML
 
       def initialize(data={})
         if data.kind_of?(Hash) && !data.empty?
-          @role = data['role']
-          @name = data['Name']
-          @email = data['Email']
+          @role = data[:role]
+          @name = data[:name]
+          @email = data[:email]
           @postal_address =
-            CXML::InvoiceDetailRequest::PostalAdress.new(data['PostalAddress'])
+            CXML::InvoiceDetailRequest::PostalAddress.new(data[:postal_address])
         end
       end
 
       def render(node)
         node.Contact('role' => role) do |c|
-          c.Name(name, 'xm:lang' => 'en')
-          c.Email(email, 'name'=> 'default')
+          c.Name(name, 'xml:lang' => 'en')
           postal_address.render(c) if postal_address
+          c.Email(email)
         end
         node
       end

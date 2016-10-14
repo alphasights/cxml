@@ -15,6 +15,9 @@ module CXML
   autoload :Response,      'cxml/response'
   autoload :Parser,        'cxml/parser'
 
+  require 'cxml/invoice_detail_request/header'
+  require 'cxml/invoice_detail_request/postal_address'
+  require 'cxml/invoice_detail_request/contact'
   require 'cxml/invoice_detail_request/order'
   require 'cxml/invoice_detail_request/service_item'
 
