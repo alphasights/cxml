@@ -25,7 +25,6 @@ describe CXML::Sender do
         </Sender>
         EOF
       )
-      
     end
   end
 end
