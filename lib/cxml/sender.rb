@@ -12,8 +12,8 @@ module CXML
 
     def render(node)
       node.Sender do |n|
-        n.UserAgent(@user_agent)
         @credential.render(n)
+        n.UserAgent(@user_agent)
       end
       node
     end
