@@ -53,7 +53,7 @@ module CXML
       node = CXML.builder
       node.cXML('payloadID' => payload_id, 'timestamp' => timestamp.iso8601) do |doc|
         doc.Header { |n| @header.render(n) } if @header
-        @request.render(node) if @request
+        # @request.render(node) if @request
         @response.render(node) if @response
       end
       node
