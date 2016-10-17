@@ -5,8 +5,8 @@ module CXML
 
       def initialize(data = {})
         if data.kind_of?(Hash) && !data.empty?
-          @amount = data[:amount]
-          @currency = data[:currency]
+          @amount = data[:tax_amount]
+          @currency = data[:tax_currency]
           @description = data[:description]
           @purpose = data[:purpose]
           @category = data[:category]
