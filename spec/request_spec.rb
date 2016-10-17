@@ -152,6 +152,5 @@ describe CXML::Request do
     </Request>
   EOF
   )
-
   end
 end
