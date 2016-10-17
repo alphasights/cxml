@@ -20,6 +20,7 @@ module CXML
   require 'cxml/invoice_detail_request/contact'
   require 'cxml/invoice_detail_request/order'
   require 'cxml/invoice_detail_request/service_item'
+  require 'cxml/invoice_detail_request/tax'
 
   def self.parse(str)
     CXML::Parser.new.parse(str)
