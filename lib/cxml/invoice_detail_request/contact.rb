@@ -17,7 +17,7 @@ module CXML
         node.Contact('role' => role) do |c|
           c.Name(name, 'xml:lang' => 'en')
           postal_address.render(c) if postal_address
-          c.Email(email)
+          c.Email(email) if email
         end
         node
       end
