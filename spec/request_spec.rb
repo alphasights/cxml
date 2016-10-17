@@ -35,14 +35,14 @@ describe CXML::Request do
         payload_id: 'TestAS1',
         items: [
           {
-            invoice_line_number: '3860982-06S',
+            invoice_line_number: 1,
             reference_date: '2016-10-19T15:00:00-00:00',
             description: 'this is a description',
             amount: 400,
             currency: 'GBP'
           },
           {
-            invoice_line_number: '3864542-36S',
+            invoice_line_number: 2,
             reference_date: '2016-10-19T15:00:00-00:00',
             description: 'this is a description',
             amount: 400,
@@ -112,7 +112,7 @@ describe CXML::Request do
                 <DocumentReference payloadID="TestAS1"/>
               </MasterAgreementReference>
             </InvoiceDetailOrderInfo>
-            <InvoiceDetailServiceItem invoiceLineNumber="3860982-06S" referenceDate="2016-10-19T15:00:00-00:00">
+            <InvoiceDetailServiceItem invoiceLineNumber="1" referenceDate="2016-10-19T15:00:00-00:00">
               <InvoiceDetailServiceItemReference>
                 <Description xml:lang="en">this is a description</Description>
               </InvoiceDetailServiceItemReference>
@@ -120,7 +120,7 @@ describe CXML::Request do
                 <Money currency="GBP">400</Money>
               </SubtotalAmount>
             </InvoiceDetailServiceItem>
-            <InvoiceDetailServiceItem invoiceLineNumber="3864542-36S" referenceDate="2016-10-19T15:00:00-00:00">
+            <InvoiceDetailServiceItem invoiceLineNumber="2" referenceDate="2016-10-19T15:00:00-00:00">
               <InvoiceDetailServiceItemReference>
                 <Description xml:lang="en">this is a description</Description>
               </InvoiceDetailServiceItemReference>
