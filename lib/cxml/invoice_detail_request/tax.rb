@@ -2,6 +2,7 @@ module CXML
   module InvoiceDetailRequest
     class Tax
       attr_accessor :amount, :currency, :description, :purpose, :category, :percentage_rate, :location
+
       def initialize(data = {})
         if data.kind_of?(Hash) && !data.empty?
           @amount = data[:amount]
