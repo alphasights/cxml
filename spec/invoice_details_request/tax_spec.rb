@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'byebug'
 
 module CXML
   module InvoiceDetailRequest
