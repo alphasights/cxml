@@ -7,8 +7,8 @@ module CXML
       def initialize(data={})
         if data.kind_of?(Hash) && !data.empty?
           @invoice_id = data[:invoice_id]
-          @operation = data.fetch(:operation) { 'new' }
-          @purpose = data.fetch(:purpose) { 'standard' }
+          @operation = data[:operation]
+          @purpose = data[:purpose]
           @invoice_date = data[:invoice_date]
           @from = CXML::InvoiceDetailRequest::Contact.new(data[:from])
           @bill_to = CXML::InvoiceDetailRequest::Contact.new(data[:bill_to])
@@ -23,8 +23,8 @@ module CXML
       def render(node)
         node.InvoiceDetailRequestHeader(
           'invoiceID' => invoice_id,
-          'purpose' => purpose,
-          'operation' => operation,
+          'purpose' => purpose || 'standard',
+          'operation' => operation || 'new',
           'invoiceDate' => invoice_date
         ) do |h|
           h.InvoiceDetailHeaderIndicator
