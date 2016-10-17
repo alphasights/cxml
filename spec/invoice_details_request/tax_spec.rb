@@ -5,7 +5,7 @@ module CXML
     describe Tax do
       it 'builds the tax partial of the cxml invoice' do 
         builder = CXML.builder
-        data = { amount: 405, currency: 'GBP', description: "total tax", purpose: "tax",
+        data = { tax_amount: 405, tax_currency: 'GBP', description: "total tax", purpose: "tax",
           category: "vat", percentage_rate: "20", location: 'GB' }
         tax_object = described_class.new(data)
 
