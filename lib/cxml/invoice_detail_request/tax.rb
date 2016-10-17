@@ -3,13 +3,15 @@ module CXML
     class Tax
       attr_accessor :amount, :currency, :description, :purpose, :category, :percentage_rate, :location
       def initialize(data = {})
-        @amount = data[:amount]
-        @currency = data[:currency]
-        @description = data[:description]
-        @purpose = data[:purpose]
-        @category = data[:category]
-        @percentage_rate = data[:percentage_rate]
-        @location = data[:location]
+        if data.kind_of?(Hash) && !data.empty?
+          @amount = data[:amount]
+          @currency = data[:currency]
+          @description = data[:description]
+          @purpose = data[:purpose]
+          @category = data[:category]
+          @percentage_rate = data[:percentage_rate]
+          @location = data[:location]
+        end
       end
 
       def render(node)
