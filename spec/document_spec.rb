@@ -22,12 +22,4 @@ describe CXML::Document do
       doc.response.should be_nil
     end
   end
-
-  describe '#render' do
-    it 'returns an xml result' do
-      doc = CXML::Document.new(parser.parse(fixture('envelope3.xml')))
-      expect { doc.render }.not_to raise_error
-      expect(doc.render.to_xml.include? "DOCTYPE cXML SYSTEM").to eq true
-    end
-  end
 end
