@@ -10,23 +10,23 @@ module CXML
 
     def initialize(data={})
       if data.kind_of?(Hash) && !data.empty?
-        @version = data['version']
-        @payload_id = data['payloadID']
+        @version = data[:version]
+        @payload_id = data[:payload_id]
 
-        if data['timestamp']
-          @timestamp = Time.parse(data['timestamp'])
+        if data[:timestamp]
+          @timestamp = Time.parse(data[:timestamp])
         end
 
-        if data['Header']
-          @header = CXML::Header.new(data['Header'])
+        if data[:header]
+          @header = CXML::Header.new(data[:header])
         end
 
-        if data['Request']
-          @request = CXML::Request.new(data['Request'])
+        if data[:request]
+          @request = CXML::Request.new(data[:request])
         end
 
-        if data['Response']
-          @response = CXML::Response.new(data['Response'])
+        if data[:response]
+          @response = CXML::Response.new(data[:response])
         end
       end
     end

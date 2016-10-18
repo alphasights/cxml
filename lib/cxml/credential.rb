@@ -44,10 +44,10 @@ module CXML
     # @param data [Hash] optional initial data
     def initialize(data={})
       if data.kind_of?(Hash) && !data.empty?
-        @domain        = data['domain']
-        @type          = data['type']
-        @identity      = data['Identity']
-        @shared_secret = data['SharedSecret']
+        @domain        = data[:domain]
+        @type          = data[:type]
+        @identity      = data[:identity]
+        @shared_secret = data[:shared_secret]
       end
     end
 
