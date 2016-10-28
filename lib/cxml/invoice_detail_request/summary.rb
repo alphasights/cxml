@@ -17,11 +17,6 @@ module CXML
           summary.SubtotalAmount do |sub|
             sub.Money(subtotal_amount, 'currency' => subtotal_currency)
           end
-          if !discount.nil?
-            summary.InvoiceDetailDiscount do |invoice_discount|
-              invoice_discount.Money(discount, 'currency' => discount_currency)
-            end
-          end
           tax.render(summary)
           summary.NetAmount do |net|
             net.Money('currency' => net_currency)
