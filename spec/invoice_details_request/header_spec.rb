@@ -27,7 +27,8 @@ module CXML
           primary_study_contact: 'John Doe',
           case_code: 'A1',
           vatin: '1234',
-          comments: 'This is an invoice'
+          comments: 'This is an invoice',
+          credit_memo: true
         )
 
         expect(header.render(builder).to_xml).to eq(<<~EOF
@@ -64,6 +65,7 @@ module CXML
             <Extrinsic name="Primary Study Contact">John Doe</Extrinsic>
             <Extrinsic name="Case Code">A1</Extrinsic>
             <Extrinsic name="VATIN">1234</Extrinsic>
+            <Extrinsic name="Credit Memo">true</Extrinsic>
           </InvoiceDetailRequestHeader>
           EOF
         )
