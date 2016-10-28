@@ -1,7 +1,7 @@
 module CXML
   module InvoiceDetailRequest
     class Summary
-      attr_accessor :subtotal_amount, :subtotal_currency, :tax, :net_currency, :discount, :discount_currency
+      attr_accessor :subtotal_amount, :subtotal_currency, :tax, :net_currency
 
       def initialize(data = {})
         if data.kind_of?(Hash) && !data.empty?
@@ -9,8 +9,6 @@ module CXML
           @subtotal_currency = data[:subtotal_currency]
           @tax = CXML::InvoiceDetailRequest::Tax.new(data[:tax])
           @net_currency = data[:net_currency]
-          @discount = data[:discount]
-          @discount_currency = data[:discount_currency]
         end
       end
 

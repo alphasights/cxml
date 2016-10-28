@@ -16,9 +16,6 @@ module CXML
             <SubtotalAmount>
               <Money currency="GBP">2025</Money>
             </SubtotalAmount>
-            <InvoiceDetailDiscount>
-              <Money currency="GBP">500</Money>
-            </InvoiceDetailDiscount>
             <Tax>
               <Money currency="GBP">405</Money>
               <Description xml:lang="en">total tax</Description>
