@@ -105,6 +105,7 @@ describe CXML::Request do
             <Extrinsic name="Primary Study Contact">John Doe</Extrinsic>
             <Extrinsic name="Case Code">A1</Extrinsic>
             <Extrinsic name="VATIN">1234</Extrinsic>
+            <Extrinsic name="Invoice Type">Credit Memo</Extrinsic>
           </InvoiceDetailRequestHeader>
           <InvoiceDetailOrder>
             <InvoiceDetailOrderInfo>
