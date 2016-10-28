@@ -7,7 +7,7 @@ module CXML
         builder = CXML.builder
         data = { subtotal_amount: 2025, subtotal_currency: 'GBP', tax_amount: 405, tax_currency: 'GBP',
           tax: { tax_amount: '405', tax_currency: 'GBP', description: 'total tax', purpose: 'tax', category: 'vat', percentage_rate: '20', net_amount: 200, location: 'GB' },
-          net_currency: 'GBP'}
+          net_currency: 'GBP' }
         summary = described_class.new(data)
         expect(summary.render(builder).to_xml).to eq(<<~EOF
           <?xml version="1.0" encoding="UTF-8"?>
