@@ -3,7 +3,7 @@ require 'spec_helper'
 module CXML
   module InvoiceDetailRequest
     describe Summary do
-      it 'builds the summary of the cxml invoice' do 
+      it 'builds the summary of the cxml invoice' do
         builder = CXML.builder
         data = { subtotal_amount: 2025, subtotal_currency: 'GBP', tax_amount: 405, tax_currency: 'GBP',
           tax: { tax_amount: '405', tax_currency: 'GBP', description: 'total tax', purpose: 'tax', category: 'vat', percentage_rate: '20', net_amount: 200, location: 'GB' },

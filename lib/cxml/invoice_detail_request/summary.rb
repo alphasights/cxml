@@ -1,7 +1,7 @@
 module CXML
   module InvoiceDetailRequest
     class Summary
-      attr_accessor :subtotal_amount, :subtotal_currency, :tax_amount, :tax, :net_currency
+      attr_accessor :subtotal_amount, :subtotal_currency, :tax, :net_currency
 
       def initialize(data = {})
         if data.kind_of?(Hash) && !data.empty?
