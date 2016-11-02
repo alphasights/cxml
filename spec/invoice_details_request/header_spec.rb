@@ -27,8 +27,8 @@ module CXML
           primary_study_contact: 'John Doe',
           case_code: 'A1',
           vatin: '1234',
-          comments: 'This is an invoice',
-          credit_memo: true
+          comments: 'This is a credit memo',
+          invoice_type: 'Credit Memo'
         )
 
         expect(header.render(builder).to_xml).to eq(<<~EOF
@@ -61,7 +61,7 @@ module CXML
               </Contact>
             </InvoicePartner>
             <PaymentTerm payInNumberOfDays="30"/>
-            <Comments xml:lang="en">This is an invoice</Comments>
+            <Comments xml:lang="en">This is a credit memo</Comments>
             <Extrinsic name="Primary Study Contact">John Doe</Extrinsic>
             <Extrinsic name="Case Code">A1</Extrinsic>
             <Extrinsic name="VATIN">1234</Extrinsic>

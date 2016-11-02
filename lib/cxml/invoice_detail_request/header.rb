@@ -2,7 +2,7 @@ module CXML
   module InvoiceDetailRequest
     class Header
       attr_accessor :invoice_id, :operation, :purpose, :invoice_date, :from, :bill_to,
-        :payment_term, :primary_study_contact, :case_code, :vatin, :comments, :credit_memo
+        :payment_term, :primary_study_contact, :case_code, :vatin, :comments, :invoice_type
 
       def initialize(data={})
         if data.kind_of?(Hash) && !data.empty?
@@ -17,7 +17,7 @@ module CXML
           @primary_study_contact = data[:primary_study_contact]
           @case_code = data[:case_code]
           @vatin = data[:vatin]
-          @credit_memo = data[:credit_memo] || false
+          @invoice_type = data[:invoice_type] || "Invoice"
         end
       end
 
@@ -37,7 +37,7 @@ module CXML
           h.Extrinsic(primary_study_contact, 'name' => 'Primary Study Contact') if primary_study_contact
           h.Extrinsic(case_code, 'name' => 'Case Code') if case_code
           h.Extrinsic(vatin, 'name' => 'VATIN') if vatin
-          h.Extrinsic(credit_memo ? "Credit Memo": "Invoice", 'name' => 'Invoice Type')
+          h.Extrinsic(invoice_type, 'name' => 'Invoice Type')
         end
         node
       end
