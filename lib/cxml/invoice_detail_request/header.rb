@@ -17,7 +17,7 @@ module CXML
           @primary_study_contact = data[:primary_study_contact]
           @case_code = data[:case_code]
           @vatin = data[:vatin]
-          @invoice_type = data[:invoice_type] || "Invoice"
+          @invoice_type = data[:invoice_type]
         end
       end
 
@@ -37,7 +37,7 @@ module CXML
           h.Extrinsic(primary_study_contact, 'name' => 'Primary Study Contact') if primary_study_contact
           h.Extrinsic(case_code, 'name' => 'Case Code') if case_code
           h.Extrinsic(vatin, 'name' => 'VATIN') if vatin
-          h.Extrinsic(invoice_type, 'name' => 'Invoice Type')
+          h.Extrinsic(invoice_type, 'name' => 'Invoice Type') if invoice_type
         end
         node
       end
