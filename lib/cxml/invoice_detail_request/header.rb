@@ -1,7 +1,7 @@
 module CXML
   module InvoiceDetailRequest
     class Header
-      attr_accessor :invoice_id, :operation, :purpose, :invoice_date, :from, :bill_to,
+      attr_accessor :invoice_id, :operation, :purpose, :invoice_date, :from, :bill_to, :remit_to,
         :payment_term, :primary_study_contact, :case_code, :vatin, :comments, :invoice_type
 
       def initialize(data={})
@@ -12,6 +12,7 @@ module CXML
           @invoice_date = data[:invoice_date]
           @from = CXML::InvoiceDetailRequest::Contact.new(data[:from])
           @bill_to = CXML::InvoiceDetailRequest::Contact.new(data[:bill_to])
+          @remit_to = CXML::InvoiceDetailRequest::Contact.new(data[:remit_to])
           @payment_term = data[:payment_term]
           @comments = data[:comments]
           @primary_study_contact = data[:primary_study_contact]
@@ -32,6 +33,7 @@ module CXML
           h.InvoiceDetailLineIndicator
           h.InvoicePartner { |n| from.render(n) }
           h.InvoicePartner { |n| bill_to.render(n) }
+          h.InvoicePartner { |n| remit_to.render(n) }
           h.PaymentTerm('payInNumberOfDays' => payment_term)
           h.Comments(comments, 'xml:lang' => 'en') if comments
           h.Extrinsic(primary_study_contact, 'name' => 'Primary Study Contact') if primary_study_contact

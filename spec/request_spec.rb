@@ -25,6 +25,7 @@ describe CXML::Request do
         invoice_date: '2016-10-15T15:48:51-00:00',
         from: from_attrs,
         bill_to: from_attrs.merge(role: 'billTo', name: 'Bill', email: 'bill@gmail.com'),
+        remit_to: from_attrs.merge(role: 'remitTo', name: 'Bill', email: 'bill@gmail.com', address_id: '123'),
         payment_term: 30,
         primary_study_contact: 'John Doe',
         case_code: 'A1',
@@ -90,6 +91,18 @@ describe CXML::Request do
             </InvoicePartner>
             <InvoicePartner>
               <Contact role="billTo">
+                <Name xml:lang="en">Bill</Name>
+                <PostalAddress>
+                  <Street>1st Street</Street>
+                  <City>Denver</City>
+                  <PostalCode>1234</PostalCode>
+                  <Country isoCountryCode="US">US</Country>
+                </PostalAddress>
+                <Email>bill@gmail.com</Email>
+              </Contact>
+            </InvoicePartner>
+            <InvoicePartner>
+              <Contact role="remitTo" addressID="123">
                 <Name xml:lang="en">Bill</Name>
                 <PostalAddress>
                   <Street>1st Street</Street>
