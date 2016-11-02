@@ -1,5 +1,3 @@
-require 'byebug'
-
 module CXML
   module InvoiceDetailRequest
     class Contact
