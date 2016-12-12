@@ -8,9 +8,9 @@ Gem::Specification.new do |s|
   s.homepage    = "http://github.com/sosedoff/cxml"
   s.authors     = ["Dan Sosedoff"]
   s.email       = ["dan.sosedoff@gmail.com"]
-  
+
   s.add_development_dependency 'rake'
-  s.add_development_dependency 'rspec',     '~> 2.13'
+  s.add_development_dependency 'rspec'
   s.add_development_dependency 'simplecov', '~> 0.7'
 
   s.add_dependency 'nokogiri'

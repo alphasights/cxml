@@ -22,6 +22,8 @@ module CXML
   require 'cxml/invoice_detail_request/service_item'
   require 'cxml/invoice_detail_request/tax'
   require 'cxml/invoice_detail_request/summary'
+  require 'cxml/invoice_detail_request/distribution'
+  require 'cxml/invoice_detail_request/accounting_segment'
 
   def self.parse(str)
     CXML::Parser.new.parse(str)
