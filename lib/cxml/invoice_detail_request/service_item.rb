@@ -1,7 +1,7 @@
 module CXML
   module InvoiceDetailRequest
     class ServiceItem
-      attr_accessor :invoice_line_number, :reference_date, :description, :amount, :currency
+      attr_accessor :invoice_line_number, :reference_date, :description, :amount, :currency, :distribution
       def initialize(data={})
         if data.kind_of?(Hash) && !data.empty?
           @invoice_line_number = data[:invoice_line_number]
@@ -9,6 +9,7 @@ module CXML
           @description = data[:description]
           @amount = data[:amount]
           @currency = data[:currency]
+          @distribution = CXML::InvoiceDetailRequest::Distribution.new(data[:distribution]) if data[:distribution]
         end
       end
 
@@ -22,6 +23,7 @@ module CXML
             si.SubtotalAmount do |sa|
               sa.Money(amount, 'currency' => currency)
             end
+            distribution.render(si) if distribution
           end
         node
       end
