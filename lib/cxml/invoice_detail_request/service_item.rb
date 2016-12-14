@@ -9,7 +9,7 @@ module CXML
           @description = data[:description]
           @amount = data[:amount]
           @currency = data[:currency]
-          @distributions = (data[:distributions]||[]).map do |args|
+          @distributions = data[:distributions].to_a.map do |args|
             CXML::InvoiceDetailRequest::Distribution.new(args)
           end
         end
