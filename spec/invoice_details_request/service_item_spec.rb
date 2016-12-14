@@ -23,7 +23,7 @@ module CXML
           description: 'this is a description',
           amount: 400,
           currency: 'GBP',
-          distribution: distribution_attrs
+          distributions: [distribution_attrs]
         }
 
         service_item = described_class.new(item_attrs)
