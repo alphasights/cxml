@@ -8,7 +8,7 @@ module CXML
           @charge_amount = data[:charge_amount]
           @charge_currency = data[:charge_currency]
           @accounting_name = data[:accounting_name]
-          @accounting_segments = data[:accounting_segments].map do |args|
+          @accounting_segments = data[:accounting_segments].to_a.map do |args|
             CXML::InvoiceDetailRequest::AccountingSegment.new(args)
           end
         end
