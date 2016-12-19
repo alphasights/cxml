@@ -30,7 +30,7 @@ module CXML
           'invoiceDate' => invoice_date
         ) do |h|
           h.InvoiceDetailHeaderIndicator
-          h.InvoiceDetailLineIndicator
+          h.InvoiceDetailLineIndicator('isAccountingInLine' => 'yes')
           h.InvoicePartner { |n| from.render(n) }
           h.InvoicePartner { |n| bill_to.render(n) }
           h.InvoicePartner { |n| remit_to.render(n) }

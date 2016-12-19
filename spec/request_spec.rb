@@ -76,7 +76,7 @@ describe CXML::Request do
         <InvoiceDetailRequest>
           <InvoiceDetailRequestHeader invoiceID="1" purpose="standard" operation="new" invoiceDate="2016-10-15T15:48:51-00:00">
             <InvoiceDetailHeaderIndicator/>
-            <InvoiceDetailLineIndicator/>
+            <InvoiceDetailLineIndicator isAccountingInLine="yes"/>
             <InvoicePartner>
               <Contact role="from">
                 <Name xml:lang="en">Janice</Name>
