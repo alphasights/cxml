@@ -17,7 +17,7 @@ describe CXML::Request do
       }
     }
 
-    data = { 
+    data = {
       id: 1,
       deployment_mode: 'test',
       header_attrs:{
@@ -28,7 +28,6 @@ describe CXML::Request do
         remit_to: from_attrs.merge(role: 'remitTo', name: 'Bill', email: 'bill@gmail.com', address_id: '123'),
         payment_term: 30,
         primary_study_contact: 'John Doe',
-        case_code: 'A1',
         vatin: '1234',
         comments: 'This is an invoice'
         },
@@ -51,10 +50,10 @@ describe CXML::Request do
           }
         ]
       },
-      summary_attrs: { 
+      summary_attrs: {
         subtotal_amount: 2025,
         subtotal_currency: 'GBP',
-        tax: { 
+        tax: {
           tax_amount: '405',
           tax_currency: 'GBP',
           description: 'total tax',
@@ -116,7 +115,6 @@ describe CXML::Request do
             <PaymentTerm payInNumberOfDays="30"/>
             <Comments xml:lang="en">This is an invoice</Comments>
             <Extrinsic name="Primary Study Contact">John Doe</Extrinsic>
-            <Extrinsic name="Case Code">A1</Extrinsic>
             <Extrinsic name="VATIN">1234</Extrinsic>
           </InvoiceDetailRequestHeader>
           <InvoiceDetailOrder>

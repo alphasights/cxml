@@ -26,7 +26,6 @@ module CXML
           remit_to: from_attrs.merge(role: 'remitTo', name: 'Bill', email: 'bill@gmail.com', address_id: '123'),
           payment_term: 30,
           primary_study_contact: 'John Doe',
-          case_code: 'A1',
           vatin: '1234',
           comments: 'This is a credit memo',
           invoice_type: 'Credit Memo'
@@ -76,7 +75,6 @@ module CXML
             <PaymentTerm payInNumberOfDays="30"/>
             <Comments xml:lang="en">This is a credit memo</Comments>
             <Extrinsic name="Primary Study Contact">John Doe</Extrinsic>
-            <Extrinsic name="Case Code">A1</Extrinsic>
             <Extrinsic name="VATIN">1234</Extrinsic>
             <Extrinsic name="Invoice Type">Credit Memo</Extrinsic>
           </InvoiceDetailRequestHeader>
