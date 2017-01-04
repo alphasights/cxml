@@ -30,7 +30,7 @@ describe CXML::Request do
         primary_study_contact: 'John Doe',
         vatin: '1234',
         comments: 'This is an invoice'
-        },
+      },
       order_attrs: {
         payload_id: 'TestAS1',
         items: [
@@ -64,7 +64,7 @@ describe CXML::Request do
           location: 'GB'
           },
           net_currency: 'GBP'
-        }
+      }
     }
     request = described_class.new(data)
 
