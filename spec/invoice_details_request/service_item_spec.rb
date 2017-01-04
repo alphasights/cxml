@@ -10,11 +10,18 @@ module CXML
           { id: 405, name: 'Name', description: 'Description' },
           { id: 406, name: 'Other Name', description: 'Other Description' }
         ]
-        distribution_attrs = {
+        distribution_attrs_1 = {
           accounting_name: 'UK Account',
           accounting_segments: segments_attrs,
           charge_amount: 200,
           charge_currency: 'GBP'
+        }
+
+        distribution_attrs_2 = {
+          accounting_name: 'US Account',
+          accounting_segments: segments_attrs,
+          charge_amount: 200,
+          charge_currency: 'USD'
         }
 
         item_attrs = {
@@ -23,7 +30,7 @@ module CXML
           description: 'this is a description',
           amount: 400,
           currency: 'GBP',
-          distribution: distribution_attrs
+          distributions: [distribution_attrs_1, distribution_attrs_2]
         }
 
         service_item = described_class.new(item_attrs)
@@ -51,6 +58,21 @@ module CXML
               </Accounting>
               <Charge>
                 <Money currency="GBP">200</Money>
+              </Charge>
+            </Distribution>
+            <Distribution>
+              <Accounting name="US Account">
+                <AccountingSegment id="405">
+                  <Name xml:lang="en">Name</Name>
+                  <Description xml:lang="en">Description</Description>
+                </AccountingSegment>
+                <AccountingSegment id="406">
+                  <Name xml:lang="en">Other Name</Name>
+                  <Description xml:lang="en">Other Description</Description>
+                </AccountingSegment>
+              </Accounting>
+              <Charge>
+                <Money currency="USD">200</Money>
               </Charge>
             </Distribution>
           </InvoiceDetailServiceItem>
